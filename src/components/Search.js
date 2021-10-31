@@ -18,12 +18,13 @@ export default function Search({ hideButtons = false }) {
 
     console.log("search is working", input);
 
-    dispatch({
-      type: actionTypes.SET_SEARCH_TERM,
-      term: input,
-    });
-
-    history.push("/search");
+    if (input!=="") {
+      dispatch({
+        type: actionTypes.SET_SEARCH_TERM,
+        term: input,
+      });
+      history.push("/search");
+    } 
   };
   return (
     <form className="search">
